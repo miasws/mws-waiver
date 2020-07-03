@@ -1,0 +1,93 @@
+body {
+    font-family: Arial;
+}
+
+main {
+    margin: 4rem 3.5rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+.acknowledgement {
+    font-weight: bold;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5em;
+}
+
+.firstname, #datetime, .signature-pad {
+    padding: .75rem;
+    background: #F5F5F5;
+    border: solid lightgrey .5px;
+    margin-bottom: 2rem;
+}
+
+.firstname {
+    width: 100%;
+}
+
+#datetime { 
+    font-weight: bold;
+}
+
+/* BUTTONS */
+.clr {
+    text-align: right;
+    margin-bottom: .5rem;
+}
+
+#submit {
+    background: #6751B3;
+    color: white;
+    border: none;
+}
+
+.submit {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.submit button {
+    padding: .75rem 2rem;
+}
+
+/* SIGNATURE PAD */
+.sig-pad {
+    width: 425px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+  
+.signature-pad {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:400px;
+    height:200px;
+}
