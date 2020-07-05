@@ -3,7 +3,7 @@ body {
 }
 
 main {
-    margin: 4rem 3.5rem;
+    margin: 4rem 2rem;
 }
 
 h1 {
@@ -20,19 +20,20 @@ h2 {
 }
 
 label {
-    display: inline-block;
+    display: block;
     margin-bottom: .5em;
 }
 
-.firstname, #datetime, .signature-pad {
+.fullname, #datetime, .signature-pad {
     padding: .75rem;
     background: #F5F5F5;
     border: solid lightgrey .5px;
     margin-bottom: 2rem;
 }
 
-.firstname {
-    width: 100%;
+.fullname {
+    font-size: 1rem;
+    width: 85%;
 }
 
 #datetime { 
@@ -57,6 +58,7 @@ label {
 }
 
 .submit button {
+    margin-top: 2.5rem;
     padding: .75rem 2rem;
 }
 
