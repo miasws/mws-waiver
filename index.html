@@ -9,7 +9,7 @@
 </head>
 <body>
         <main>
-            <article class="waiver" id="test">
+            <article class="waiver">
                 <div id="to-pdf">
                     <h1>Mia's Wax Studio</h1>
                     <h3>RELEASE OF LIABILITY AND ASSUMPTION OF RISK</h3>
@@ -69,12 +69,11 @@
                         RIGHT TO SUE THE COMPANY. I FURTHERMORE AGREE THAT MY SUBMISSION OF THIS ELECTRONIC FORM
                         SHALL CONSTITUTE THE EXECUTION OF THIS DOCUMENT IN EXACTLY THE SAME MANNER AS IF I HAD 
                         SIGNED, BY HAND, A PAPER VERSION OF THIS AGREEMENT.</b>
-                    </p><br>
+                    </p>
                     <div class="signing">
                         <form action="" id="form">
                             <label for="fullname" class="first-label">Full Name (required):</label>
                             <input type="text" name="fullname" class="fullname" id="fname" required>
-                            <br><br>
                             <label for="sig">Your Signature (required):</label>
                             <div class="sig-pad">
                                 <div class="clr">
@@ -84,7 +83,6 @@
                                     <canvas id="signature-pad" class="signature-pad" name="sig" width=400 height=200></canvas>
                                 </div>
                             </div>
-                            <br>
                             <p>Date & Time:</p>
                             <span id="datetime"></span>
                     </div>
@@ -95,7 +93,6 @@
                                 </button>
                             </div>
                         </form>
-                <div id="ss"></div>
             </article>
         </main>        
     
@@ -141,7 +138,7 @@
             //Reload page after print pdf
             setInterval(function(){
               window.location.reload(true);
-           }, 500);
+           }, 60000);
         }
     </script>
 </body>
