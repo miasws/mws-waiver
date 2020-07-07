@@ -1,157 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mia's Wax Studio COVID-19 Waiver</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> 
-    <script src="signature_pad.umd.min.js"></script>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Mia's Wax Studio</title>
+    <link rel='stylesheet' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"> 
 </head>
 <body>
-        <main>
-            <article class="waiver" id="test">
-                <h1>Mia's Wax Studio</h1>
-                <h2>RELEASE OF LIABILITY AND ASSUMPTION OF RISK</h2>
-                <p class="intro">
-                    The individual named below (referred to as “I” or “me”) desires to participate in Salon Service (the “Activity") which
-                    shall be provided by Mia’s Wax Studio (the “Company). As lawful consideration for the value that I will gain by
-                    participating in the Activity, I agree to all the terms and conditions set forth in this agreement (this “Agreement").
-                </p>
-                <p class="risks">
-                    I AM AWARE AND UNDERSTAND THAT THE ACTIVITIES ARE POTENTIALLY DANGEROUS ACTIVITIES AND INVOLVE
-                    THE RISK OF SERIOUS ILLNESS, INJURY AND/OR DEATH. I ACKNOWLEDGE THAT I AM AWARE OF THE COVID-19
-                    VIRUS AND ITS ABILITY TO BE TRANSFERRED FROM PERSON-TO-PERSON CONTACT. I AM ALSO AWARE THAT
-                    ANY PERSON MAY CARRY THE VIRUS AND BE ASYMPTOMATIC. I UNDERSTAND THAT THE COMPANY CANNOT
-                    GUARANTEE THAT I WILL NOT BECOME INFECTED WITH COVID-19, DESPITE THE COMPANY’S BEST EFFORTS
-                    TO ABIDE BY STATE AND FEDERAL GUIDELINES SURROUNDING COVID-19. I ACKNOWLEDGE THAT I AM
-                    VOLUNTARILY PARTICIPATING IN THE ACTIVITIES WITH KNOWLEDGE OF THE DANGER OF ILLNESS INVOLVED
-                    AND HEREBY AGREE TO ACCEPT AND ASSUME ANY AND ALL RISKS OF ILLNESS, INJURY, OR DEATH.
-                </p>
-                <p class="covid">
-                    I CERTIFY THAT I HAVE BEEN PRACTICING THE REQUIRED SAFETY PROTOCOLS OF COVID-19 AND AM TAKING
-                    ALL THE PRECAUTIONS SERIOUSLY. I CERTIFY TO THE BEST OF MY KNOWLEDGE THE FOLLOWING: I DO NOT
-                    HAVE A FEVER. I AM SHOWING NO SYMPTOMS INCLUDING SHORTNESS OF BREATH, LOSS OF SENSE OF TASTE
-                    OR SMELL, DRY COUGH, SORE THROAT. NO ONE IN MY IMMEDIATE FAMILY HAS HAD A FEVER, COUGH, OR HAS
-                    BEEN SICK IN THE PAST TWO WEEKS. I HAVE NOT TRAVELED OUT OF MINNESOTA IN THE PAST TWO WEEKS.
-                    NO ONE IN MY IMMEDIATELY FAMILY HAS TRAVELED OUTSIDE OF THE STATE OF MINNESOTA IN THE PAST TWO
-                    WEEKS. I AM AWARE THAT IF I SHOW UP TO MY APPOINTMENT WITHOUT A PROTECTIVE MASK, I WILL BE
-                    TURNED AWAY FOR SERVICE.
-                </p>
-                <p class="liability">
-                    I hereby expressly waive and release any and all claims, now known or hereafter known, against the Company, and its
-                    officers, directors, employees, agents, affiliates, successors, and assigns (collectively, "Releasees"), on account of
-                    illness, injury, or death arising out of or attributable to my participation in the Activities. I agree not to make or bring any
-                    such claim against the Company or any other Releasee, and forever release and discharge the Company and all other
-                    Releasees from liability under such claims.
-                    I shall defend, indemnify, and hold harmless the Company and all other Releasees against any and all losses,
-                    damages, liabilities, deficiencies, claims, actions, judgments, settlements, interest, awards, penalties, fines, costs, or
-                    expenses of whatever kind, including attorney fees, fees and the costs of enforcing any right to indemnification under
-                    this Agreement, and the cost of pursuing any insurance providers, arising out or resulting from any claim of a third
-                    party related to the Activities.
-                </p>
-                <p class="agreement">
-                    This Agreement constitutes the sole and entire Agreement between the Company and me with respect to the subject
-                    matter of release of liability and assumption of risk contained herein and supersedes all prior and contemporaneous
-                    understandings, agreements, representations, and warranties, both written and oral, with respect to such subject
-                    matter. If any term or provision of this Agreement is invalid, illegal, or unenforceable in any jurisdiction, such invalidity,
-                    illegality, or unenforceability shall not affect any other term or provision of this Agreement or invalidate or render
-                    unenforceable such term or provision in any other jurisdiction. This Agreement is binding on and shall inure to the
-                    benefit of the Company and me and their respective successors and assigns. All matters arising out of or relating to
-                    this Agreement shall be governed by and construed in accordance with the internal laws of the State of [Minnesota]
-                    without giving effect to any choice or conflict of law provision or rule. Any claim or cause of action arising under this
-                    Agreement may be brought only in the federal and state courts located in [Ramsey County], Minnesota] and I hereby
-                    consent to the exclusive jurisdiction of such courts.
-                </p>
-                <p class="acknowledgement">
-                    BY SIGNING, I ACKNOWLEDGE THAT I HAVE READ AND UNDERSTOOD ALL OF THE TERMS OF THIS
-                    AGREEMENT AND THAT I AM VOLUNTARILY GIVING UP SUBSTANTIAL LEGAL RIGHTS, INCLUDING THE
-                    RIGHT TO SUE THE COMPANY.
-                </p>
-                <div class="signing">
-                    <form action="">
-                        <label for="fullname">Full Name:</label>
-                        <input type="text" name="fullname" class="fullname" id="fname" required>
-                        <label for="sig">Your Signature:</label>
-                        <div class="sig-pad">
-                            <div class="clr">
-                                <input type="button" id="clear" value="Clear">
-                            </div>
-                            <div class="wrapper">
-                                <canvas id="signature-pad" class="signature-pad" name="sig" width=400 height=200></canvas>
-                            </div>
-                        </div>
-                        <p>Date & Time:</p>
-                        <span id="datetime"></span>
-                        <div class="submit">
-                            <button id="submit" type="reset" onclick="reloadPage()">Accept</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="ss"></div>
-            </article>
-        </main>        
-    
-    <script>
-    /*SCRIPT TO GET LIVE DATE & TIME*/
-    var span = document.getElementById("datetime");
-    function time() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, "0");
-        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        var yyyy = today.getFullYear();
-        var d = new Date();
-        var s = d.getSeconds();
-        var m = d.getMinutes();
-        var h = d.getHours();
-        span.textContent = mm + "/" + dd + "/" + yyyy + " " + h + ":" + m + ":" + s;
-    }
-    setInterval(time, 1000);
-    </script>    
-    <script>
-    /*SCRIPT TO TAKE SCREENSHOT OF PAGE*/
-    const capture = () => {
-      const body = document.querySelector("body");
-      body.id = "capture";
-      //Hide submit & clear button before capture
-      var submitButton = document.getElementById("submit");
-      var clrButton = document.getElementById("clear");
-      submitButton.style.display = "none";
-      clrButton.style.display = "none";
-      html2canvas(document.querySelector("#capture")).then(canvas => {
-        document.getElementById("ss").appendChild(canvas);
-      }).then(() => {
-        var canvas = document.getElementById("ss").firstChild;
-        canvas.style.display = "none";
+    <div class='container'>
+        <nav class='navbar'>
+            <a href='#home' class='logo'><img src='/mws.svg' alt='Mia's Wax Studio Logo' width='250'></a>
+            <ul>
+                <li><a href='#home' class='underline'>Home</a></li>
+                <li><a href='#about' class='underline'>About</a></li>
+                <li><a href='#services' class='underline'>Services</a></li>
+                <li><a href='#hourslocation' class='underline'>Hours & Location</a></li>
+                <li><a href='#book' class='underline'>Book Appointment</a></li>
+            </ul>
+        </nav>
 
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        var a = document.createElement("a");
-        a.setAttribute("download", "mws_covid_waiver.png");
-        a.setAttribute("href", image);
-        a.click();
-      });
-    };
-    
-    const btn = document.getElementById("submit");
-    btn.addEventListener("click", capture)
-    </script>
-    <script>
-    /*SCRIPT FOR SIGNITURE PAD*/
-    var signaturePad = new SignaturePad(document.getElementById("signature-pad"), {
-        backgroundColor: "rgba(255, 255, 255, 0)",
-        penColor: "rgb(0, 0, 0)"
-    });
-    var cancelButton = document.getElementById("clear");
-        
-    cancelButton.addEventListener("click", function (event) {
-        signaturePad.clear();
-    });
-    </script>
-    <script>
-    /*SCRIPT TO RELOAD PAGE AFTER SUBMIT*/
-    function reloadPage() {
-        setTimeout(location.reload.bind(location), 3000);
-    }
-    </script>
+        <section id='home'>
+            <div class="left">
+                <h1>Welcome to<br>
+                    <span class='name'>Mia's Wax Studio</span>
+                </h1>
+                <div class="arrow">
+                    <a href='#about'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id='about'>
+            <h1>Lorem, ipsum dolor.</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </section>
+        <section id='services'>
+            <div class="services">
+                <h1>Services</h1>
+                <div class="waxing">
+                    <p>*Eyebrow <span class='price'>$12</span></p>
+                    <p>Upper Lip <span class="price">$5</span></p>
+                    <p>*Chin <span class="price">$10+</span></p>
+                    <p>Underarm <span class="price">$15</span></p>
+                    <p class='covid19'>*Price has increased by $2 due to COVID-19 costs.</p>
+                </div>
+            </div>
+        </section>
+        <section id='hourslocation'>
+            <div class='left'>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11293.679614315835!2d-93.1175204!3d44.9554594!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x259dc8613c6fa1f7!2sMia&#39;s%20Wax%20Studio!5e0!3m2!1sen!2sus!4v1593488512479!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <div class="right locationhours">
+                <h1>Location & Hours</h1>
+            </div>
+        </section>
+        <section id='book'>
+            <h1>Lorem, ipsum dolor.</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </section>
+    </div>
+
+
 </body>
 </html>
