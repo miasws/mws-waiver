@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mia's Wax Studio COVID-19 Waiver</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> 
     <script src="signature_pad.umd.min.js"></script>
-    <script src="print.min.js"></script>
 </head>
 <body>
         <main>
@@ -92,10 +90,8 @@
                     </div>
                 </div>
                             <div class="submit">
-                                <button type="button" onclick="clrbtn(); printJS({
-                                printable: 'to-pdf', 
-                                type: 'html'}); reloadPage();">
-                                Submit
+                                <button type="button" onclick="printpdf()" id="submit">
+                                    Submit
                                 </button>
                             </div>
                         </form>
@@ -118,9 +114,7 @@
         span.textContent = mm + "/" + dd + "/" + yyyy + " at " + h + ":" + m + ":" + s;
     }
     setInterval(time, 1000);
-    </script>    
 
-    <script>
     /*SCRIPT FOR SIGNITURE PAD*/
     var signaturePad = new SignaturePad(document.getElementById("signature-pad"), {
         backgroundColor: "rgba(255, 255, 255, 0)",
@@ -134,17 +128,21 @@
     </script>
 
     <script>
-        function clrbtn() {
+        function printpdf() {
+            //Hide the buttons before pdf print
             var clrButton = document.getElementById("clear");
             clrButton.style.display = "none";
-        }
+            var submitButton = document.getElementById("submit");
+            submitButton.style.display = "none";
 
-        /*SCRIPT TO RELOAD PAGE AFTER SUBMIT
-        function reloadPage() {
+            //Print pdf
+            window.print();
+
+            //Reload page after print pdf
             setInterval(function(){
               window.location.reload(true);
-           }, 200);
-        }*/
+           }, 500);
+        }
     </script>
 </body>
 </html>
