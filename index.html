@@ -6,6 +6,8 @@
     <title>Mia's Wax Studio COVID-19 Waiver</title>
     <link rel="stylesheet" href="style.css">
     <script src="signature_pad.umd.min.js"></script>
+    <script src="print.min.js"></script>
+    <script src="html2canvas.min.js"></script>
 </head>
 <body>
     <main>
@@ -85,12 +87,13 @@
                         <p>Date & Time:</p>
                         <span id="datetime"></span>
                         <div class="submit">
-                            <button type="button" onclick="printpdf()" id="submit">
+                            <button type="button" id="submit">
                                 Submit
                             </button>
                         </div>
                     </form>
                 </div>
+                <div id="ss"></div>
         </article>
     </main>                
     
@@ -122,22 +125,33 @@
     });
     </script>
 
-    <script>
-    function printpdf() {
-        //Hide the buttons before pdf print
-        var clrButton = document.getElementById("clear");
-        clrButton.style.display = "none";
-        var submitButton = document.getElementById("submit");
-        submitButton.style.display = "none";
+     <script>
+    /*SCRIPT TO TAKE SCREENSHOT OF PAGE*/
+    const capture = () => {
+      const body = document.querySelector("body");
+      body.id = "capture";
+      //Hide submit & clear button before capture
+      var submitButton = document.getElementById("submit");
+      var clrButton = document.getElementById("clear");
+      submitButton.style.display = "none";
+      clrButton.style.display = "none";
 
-        //Print pdf
-        window.print();
+      html2canvas(document.querySelector("#capture")).then(canvas => {
+        document.getElementById("ss").appendChild(canvas);
+      }).then(() => {
+        var canvas = document.getElementById("ss").firstChild;
+        canvas.style.display = "block";
 
-        //Reload page after print pdf
-        setInterval(function(){
-            window.location.reload(true);
-        }, 6000);
-    }
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        var a = document.createElement("a");
+        a.setAttribute("download", "mws_covid_waiver.png");
+        a.setAttribute("href", image);
+        a.click();
+      });
+    };
+    
+    const btn = document.getElementById("submit");
+    btn.addEventListener("click", capture)
     </script>
 </body>
 </html>
