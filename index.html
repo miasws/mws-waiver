@@ -152,6 +152,11 @@
     
     const btn = document.getElementById("submit");
     btn.addEventListener("click", capture)
+
+    //Reload page after print pdf
+    setInterval(function(){
+        window.location.reload(true);
+    }, 6000);
     </script>
 </body>
 </html>
