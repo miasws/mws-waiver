@@ -72,7 +72,7 @@
                     SIGNED, BY HAND, A PAPER VERSION OF THIS AGREEMENT.</b>
                 </p>
                 <div class="signing">
-                    <form action="" id="form">
+                    <form action="" id="form" name="form">
                         <label for="fullname" class="first-label">Full Name (required):</label>
                         <input type="text" name="fullname" class="fullname" id="fname" required>
                         <label for="sig">Your Signature (required):</label>
@@ -127,9 +127,10 @@
 
      <script>
     function reload() {
+        document.forms['form'].reset()
         window.location.reload();
     }
-    
+
     /*SCRIPT TO TAKE SCREENSHOT OF PAGE*/
     const capture = () => {
       const body = document.querySelector("body");
