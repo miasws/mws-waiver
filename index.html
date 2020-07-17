@@ -87,7 +87,7 @@
                         <p>Date & Time:</p>
                         <span id="datetime"></span>
                         <div class="submit">
-                            <button type="button" id="submit">
+                            <button type="button" id="submit" >
                                 Submit
                             </button>
                         </div>
@@ -126,6 +126,10 @@
     </script>
 
      <script>
+    function reload() {
+        window.location.reload();
+    }
+    
     /*SCRIPT TO TAKE SCREENSHOT OF PAGE*/
     const capture = () => {
       const body = document.querySelector("body");
@@ -147,16 +151,13 @@
         a.setAttribute("download", "mws_covid_waiver.png");
         a.setAttribute("href", image);
         a.click();
+
+        setTimeout(reload, 2000);
       });
     };
     
     const btn = document.getElementById("submit");
-    btn.addEventListener("click", capture)
-
-    //Reload page after print pdf
-    setInterval(function(){
-        window.location.reload(true);
-    }, 6000);
+    btn.addEventListener("click", capture);
     </script>
 </body>
 </html>
